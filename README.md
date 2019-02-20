@@ -16,7 +16,9 @@ to implement this transpiler. The RNN is created by adapting the excellent work 
 [keras-attention](https://github.com/datalogue/keras-attention),
 which was originally developed to convert dates from varied human readable format to machine format.
 
-See Jupyter notebook `python_scala_comprehension_transpiler.ipynb` for the results.
+See Jupyter notebook
+[python_scala_comprehension_transpiler.ipynb](https://github.com/matthagy/python_scala_comprehension_transpiler/blob/master/python_scala_comprehension_transpiler.ipynb)
+for the results.
 Note, you can directly view this file within the GitHub web app without cloning the
 project and running Jupyter.
 
