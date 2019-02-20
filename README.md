@@ -14,7 +14,7 @@ To learn more about this project, including a discussion of results, see the cor
 [A Python to Scala transpiler using neural machine translation (NMT)](https://medium.com/@matthagy/a-python-to-scala-transpiler-using-neural-machine-translation-nmt-90d4d02afa70).
 
 [Neural machine translation (NMT)](https://en.wikipedia.org/wiki/Neural_machine_translation)
-is applied using a [recurrent neural network](https://en.wikipedia.org/wiki/Recurrent_neural_network)
+is applied using a [recurrent neural network](https://en.wikipedia.org/wiki/Recurrent_neural_network) (RNN)
 to implement this transpiler. The RNN is created by adapting the excellent work of Zafarali Ahmed in
 [keras-attention](https://github.com/datalogue/keras-attention),
 which was originally developed to convert dates from varied human readable format to machine format.
