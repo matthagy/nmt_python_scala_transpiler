@@ -56,6 +56,8 @@ The number controls the number of expressions generated and you can modify it ac
 ## Working with an AWS EC2 VM
 Start by creating a VM instance following instructions in
 [Launch an AWS Deep Learning AMI](https://aws.amazon.com/getting-started/tutorials/get-started-dlami).
+Select a VM that includes a GPU.
+I used a [g3s.xlarge](https://aws.amazon.com/ec2/instance-types/g3/) instance. 
 
 Next, you'll need to configure two environmental variables to specify how to interact
 with your VM using scripts in this project.
@@ -68,13 +70,13 @@ export AWS_EC2_PRIVATE_KEY=~/Downloads/key.pem
 
 ### Environmental variable VM_DNS
 You need to specify the DNS address of the VM. You can find this on the EC2 control panel
-for this VM instance.
+for this VM instance under the attribute "Public DNS".
 ```bash
 export VM_DNS=NAME.REGION.compute.amazonaws.com
 ```
 
 ### Create an SSH tunnel to the VM
-Connect the VM using SSH with the following script.
+Connect to the VM using SSH with the following script.
 ```bash
 bash scripts/ssh_tunnel.sh
 ```
@@ -82,7 +84,7 @@ This also creates a port tunnel between the VM and your laptop so you can access
 notebook instance from your laptop.
 
 ### Launch Jupyter notebook in a screen session
-We want to launch the Jupyter notebook server on our VM. We run the Jupyter program
+Next, we want to launch the Jupyter notebook server on our VM. We run the Jupyter program
 in a screen session so that if lose our SSH connection to the VM the Jupyter program
 will continue to run.
 
@@ -109,10 +111,7 @@ main UI. From there you can open notebooks. (See instructions below for copying 
 
 In the VM terminal, you can dispatch from the screen session by pressing `Control` and `D` at the same
 time. You'll want to keep the SSH session open to preserve the tunnel between the VM and you
-laptop. If you lose SSH connection, you can always reconnect by re-running the command.
-```bash
-bash scripts/ssh_tunnel.sh
-```
+laptop. If you lose SSH connection, you can always reconnect by re-running the script `scripts/ssh_tunnel.sh`.
 
 ### Pushing expression data
 Next, we want to copy the Python/Scala expressions from our laptop to the VM.
@@ -148,7 +147,7 @@ bash scripts/ssh_tunnel.sh
 You can now open the notebook on the Jupyter webapp running on your laptop.
 Open the file named `nmt_python_scala_transpiler.ipynb`.
 You can run all cells in this notebook to repeat this work.
-The final cell is an infinite loop and you can interrupt it when you're
+The training cell is an infinite loop and you can interrupt it when you're
 satisfied with level of training.
 
 I allowed the notebook to run over night using a GPU on EC2.
