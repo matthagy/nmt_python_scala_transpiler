@@ -114,10 +114,10 @@ bash scripts/push_expressions.sh
 ```
 
 ### Pushing the notebook
-Next, we'll want to copy the Jupyter notebooks from our laptop to the VM.
+Next, we'll want to copy the Jupyter notebook from our laptop to the VM.
 Run the following script to do so.
 ```bash
-bash scripts/push_notebooks.sh
+bash scripts/push_notebook.sh
 ```
 
 Once the upload finishes, you can resume your SSH session to recreate the SSH tunnel
@@ -126,4 +126,6 @@ so that you can access the Jupyter server on the VM from your laptop.
 scripts/ssh_tunnel.sh
 ```
 
-### Run the notebooks
+### Run the notebook
+You can now open the notebook on the Jupyter webapp running on your laptop.
+Open the file named ``

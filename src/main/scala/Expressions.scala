@@ -41,7 +41,8 @@ case class FunctionCall(functionName: Variable, arguments: List[Expression]) ext
     functionName.name + arguments.map(f).mkString("(", ",", ")")
 }
 
-case class AnonymousUnaryFunction(variable: Variable, expression: Expression) extends ExpressionWithProtectedVariables {
+case class AnonymousUnaryFunction(variable: Variable, expression: Expression)
+  extends ExpressionWithProtectedVariables {
   assert(expression.containsVariable(variable))
 
   override def children: List[Expression] = List(expression)
