@@ -46,7 +46,7 @@ Next, you can generate the expression data by running these commands.
 mkdir data
 bash scripts/push_expressions.sh 400000 > data/expressions
 ```
-(Note, this was the largest data I could process on a 30 GB VM.)
+(Note, this was the largest data I could process on a 30 GB VM in the subsequent training step.)
 
 The number controls the number of expressions generated and you can modify it accordingly.
 
