@@ -1,4 +1,4 @@
-# Python to Scala Comprehension Transpiler using Neural Machine Translation
+# Python to Scala Transpiler using Neural Machine Translation
 Matt Hagy, matthew.hagy@gmail.com
 
 This project demonstrates how to convert simple Python expressions into Scala expressions. For example, consider the following Python expression.
