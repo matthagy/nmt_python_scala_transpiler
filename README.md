@@ -83,6 +83,13 @@ bash scripts/ssh_tunnel.sh
 This also creates a port tunnel between the VM and your laptop so you can access the Jupyter
 notebook instance from your laptop.
 
+### Clone the keras-attention project
+Clone the project on the VM within the top of your user home directory by running the following command.
+```bash
+git clone https://github.com/datalogue/keras-attention.git
+```
+This will create the directory `keras-attention` in your home directory.
+
 ### Launch Jupyter notebook in a screen session
 Next, we want to launch the Jupyter notebook server on our VM. We run the Jupyter program
 in a screen session so that if lose our SSH connection to the VM the Jupyter program
