@@ -116,7 +116,7 @@ Next, we want to copy the Python/Scala expressions from our laptop to the VM.
 First, we'll create the necessary directories on the VM filesystem.
 Within the SSH session, run the following command on the VM.
 ```bash
-mkdir -p python_scala_comprehension_transpiler/data
+mkdir -p nmt_python_scala_transpiler/data
 ```
 
 Next, temporarily close the SSH session so we can run the command to copy data
@@ -143,7 +143,7 @@ bash scripts/ssh_tunnel.sh
 
 ### Run the notebook
 You can now open the notebook on the Jupyter webapp running on your laptop.
-Open the file named `python_scala_comprehension_transpiler.ipynb`.
+Open the file named `nmt_python_scala_transpiler.ipynb`.
 You can run all cells in this notebook to repeat this work.
 The final cell is an infinite loop and you can interrupt it when you're
 satisfied with level of training.

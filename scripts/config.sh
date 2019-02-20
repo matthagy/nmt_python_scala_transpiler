@@ -20,7 +20,7 @@ fi
 
 # Define this once since we use it multiple times in ssh/scp scripts
 SSH_HOST="ubuntu@$VM_DNS"
-SCP_DIR="$SSH_HOST:~/python_scala_comprehension_transpiler"
+SCP_DIR="$SSH_HOST:~/nmt_python_scala_transpiler"
 
 # This is the default port for Jupyter notebook. You can change it if you want
 # but you'll need to specify the port when you launch the Jupyter notebook
