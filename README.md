@@ -1,4 +1,6 @@
 # Python to Scala Comprehension Transpiler using Neural Machine Translation
+Matt Hagy, matthew.hagy@gmail.com
+
 This project demonstrates how to convert simple Python expressions into Scala expressions. For example, consider the following Python expression.
 ```python
 [a(x, z) for x in l if b(x, y)]
@@ -142,7 +144,12 @@ satisfied with level of training.
 I allowed the notebook to run over night using a GPU on EC2.
 
 ### Copy results back
-Lastly, you can copy the modified Jupyter notebook back to your laptop.
+Lastly, you can copy the modified Jupyter notebook back to your laptop by running
+the following script on your laptop.
 ```bash
 bash scripts/pull_notebook.sh
 ```
+
+## Closing Remarks
+Thanks for checking out this project! I welcome any revisions or extensions to this work
+so feel free to submit a PR.
