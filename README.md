@@ -44,8 +44,9 @@ sbt assembly
 Next, you can generate the expression data by running these commands.
 ```bash
 mkdir data
-bash scripts/push_expressions.sh 100000 > data/expressions
+bash scripts/push_expressions.sh 400000 > data/expressions
 ```
+(Note, this was the largest data I could process on a 30 GB VM.)
 
 The number controls the number of expressions generated and you can modify it accordingly.
 

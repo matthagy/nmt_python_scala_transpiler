@@ -60,9 +60,9 @@ case class AnonymousUnaryFunction(variable: Variable, expression: Expression)
 }
 
 case class MapFilterOperation(variable: Variable,
-                         elementExpression: Expression,
-                         sequenceExpression: Expression,
-                         filterExpression: Option[Expression]) extends Expression {
+                              elementExpression: Expression,
+                              sequenceExpression: Expression,
+                              filterExpression: Option[Expression]) extends Expression {
   assert(elementExpression.containsVariable(variable))
   assert(filterExpression.isEmpty || filterExpression.exists(_.containsVariable(variable)))
 
@@ -94,5 +94,9 @@ case class MapFilterOperation(variable: Variable,
   }
 
   private def applyAnonymousFunction(method: String, expression: Expression): String =
-    s".$method(${AnonymousUnaryFunction(variable, expression).scala})"
+    expression match {
+      case FunctionCall(functionName, args) if args == List(variable) =>
+        s".$method(${functionName.name})"
+      case _ => s".$method(${AnonymousUnaryFunction(variable, expression).scala})"
+    }
 }
