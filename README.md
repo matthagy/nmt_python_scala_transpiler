@@ -22,25 +22,31 @@ instance.
 The Python and Scala equivalent programs are generated programatically using a Scala program.
 You can find the source code for this program in the src directory.
 
-To build the Java jar you'll need to install sbt. You can then simply run
+To build the Java jar you'll need to install [sbt](https://www.scala-sbt.org).
+With [Homebrew](https://brew.sh), you can install sbt using the following command.
+```bash
+brew install sbt
+```
+
+You can then simply run the following command in the project root directory.
 ```bash
 sbt assembly
 ```
 
-Next, you can generate the expression data by running the script
+Next, you can generate the expression data by running these commands.
 ```bash
 mkdir data
 bash scripts/push_expressions.sh 100000 > data/expressions
 ```
 
-The number controls the number of programs generated and you can modify the accordingly.
+The number controls the number of expressions generated and you can modify it accordingly.
 
 ## Working with an AWS EC2 VM
 Start by creating a VM instance following instructions in
 [Launch an AWS Deep Learning AMI](https://aws.amazon.com/getting-started/tutorials/get-started-dlami).
 
 Next, you'll need to configure two environmental variables to specify how to interact
-with your VM.
+with your VM using scripts in this project.
 
 ### Environmental variable AWS_EC2_PRIVATE_KEY
 You need to specify the SSH PEM key that you configured for this VM. E.g.,
@@ -58,21 +64,21 @@ export VM_DNS=NAME.REGION.compute.amazonaws.com
 ### Create an SSH tunnel to the VM
 Connect the VM using SSH with the following script.
 ```bash
-scripts/ssh_tunnel.sh
+bash scripts/ssh_tunnel.sh
 ```
 This also creates a port tunnel between the VM and your laptop so you can access the Jupyter
 notebook instance from your laptop.
 
 ### Launch Jupyter notebook in a screen session
-We want to launch the Jupyter notebook server on our VM. We want to run the Jupyter program
-in a screen session so that if lose connection to our VM the Jupyter program will continue
-to run.
+We want to launch the Jupyter notebook server on our VM. We run the Jupyter program
+in a screen session so that if lose our SSH connection to the VM the Jupyter program
+will continue to run.
 
 You can create a screen session by running the following command in a shell.
 ```bash
 screen -S jupyter
 ```
-(The `-S` flag allows us to name this screen session so that we can easily re-attach to it.)
+(The `-S` flag allows us to name this screen session so that we can easily re-attach to it later.)
 
 Within the screen session, launch the Jupyter notebook.
 ```bash
@@ -93,7 +99,7 @@ In the VM terminal, you can dispatch from the screen session by pressing `Contro
 time. You'll want to keep the SSH session open to preserve the tunnel between the VM and you
 laptop. If you lose SSH connection, you can always reconnect by re-running the command.
 ```bash
-scripts/ssh_tunnel.sh
+bash scripts/ssh_tunnel.sh
 ```
 
 ### Pushing expression data
@@ -123,9 +129,20 @@ bash scripts/push_notebook.sh
 Once the upload finishes, you can resume your SSH session to recreate the SSH tunnel
 so that you can access the Jupyter server on the VM from your laptop.
 ```bash
-scripts/ssh_tunnel.sh
+bash scripts/ssh_tunnel.sh
 ```
 
 ### Run the notebook
 You can now open the notebook on the Jupyter webapp running on your laptop.
-Open the file named ``
+Open the file named `python_scala_comprehension_transpiler.ipynb`.
+You can run all cells in this notebook to repeat this work.
+The final cell is an infinite loop and you can interrupt it when you're
+satisfied with level of training.
+
+I allowed the notebook to run over night using a GPU on EC2.
+
+### Copy results back
+Lastly, you can copy the modified Jupyter notebook back to your laptop.
+```bash
+bash scripts/pull_notebook.sh
+```
