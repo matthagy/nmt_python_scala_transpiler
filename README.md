@@ -10,6 +10,8 @@ Within the context of this work, the equivalent Scala expressions is
 l.filter((x) => b(x, y)).map((x) => a(x, z))
 ```
 
+To learn more about this project, including a discussion of results, see the corresponding blog post, [A Python to Scala transpiler using neural machine translation (NMT](https://medium.com/@matthagy/a-python-to-scala-transpiler-using-neural-machine-translation-nmt-90d4d02afa70).
+
 [Neural machine translation (NMT)](https://en.wikipedia.org/wiki/Neural_machine_translation)
 is applied using a [recurrent neural network](https://en.wikipedia.org/wiki/Recurrent_neural_network)
 to implement this transpiler. The RNN is created by adapting the excellent work of Zafarali Ahmed in
