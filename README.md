@@ -16,6 +16,10 @@ to implement this transpiler. The RNN is created by adapting the excellent work 
 [keras-attention](https://github.com/datalogue/keras-attention),
 which was originally developed to convert dates from varied human readable format to machine format.
 
+See Jupyter notebook `python_scala_comprehension_transpiler.ipynb` for the results.
+Note, you can directly view this file within the GitHub web app without cloning the
+project and running Jupyter.
+
 If you'd like to reproduce this work, you'll want to use a machine with a GPU, because otherwise 
 training the RNN will be too slow. This project includes scripts for interacting with an AWS EC2 VM
 instance.
